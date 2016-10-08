@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="andrew_kuliahin.myapplication.CreationNotes">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:title="Journal"
+        app:titleMarginStart="20dp"
+        app:logo="@drawable/g4425"
+        />
+
+    <ImageButton
+        android:layout_width="55dp"
+        android:layout_height="56dp"
+        app:srcCompat="@drawable/ic_info"
+        android:id="@+id/info2"
+        app:layout_anchorGravity="bottom|left"
+        android:layout_gravity="top|right"
+        android:background="?attr/actionModeSplitBackground"
+        android:onClick="onInfo2Click"/>
+
+    <include layout="@layout/content_creation_notes" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        android:layout_width="60dp"
+        app:rippleColor="?android:attr/colorActivatedHighlight" />
+
+</android.support.design.widget.CoordinatorLayout>
