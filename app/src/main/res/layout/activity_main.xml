@@ -5,39 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="andrew_kuliahin.myapplication.MainActivity">
+    tools:context="andrew_kuliahin.myapplication.MainActivity"
+    app:statusBarBackground="@android:color/transparent"
+    android:background="@drawable/gradient">
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="60dp"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_menu_add"
-        app:backgroundTint="@color/colorAccent"
+        app:srcCompat="@drawable/ic_action_new"
+        app:backgroundTint="@android:color/holo_blue_dark"
         android:layout_height="60dp"
-        app:rippleColor="?android:attr/colorMultiSelectHighlight" />
+        app:rippleColor="@android:color/holo_blue_light"
+        app:elevation="0dp" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimaryDark"
+        android:background="@android:color/transparent"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:title="Journal"
-        app:titleMarginStart="20dp"
-        app:logo="@drawable/g4425" />
+        app:titleMarginStart="20dp" />
 
 
     <ImageButton
         android:layout_width="55dp"
         android:layout_height="56dp"
-        app:srcCompat="@drawable/ic_info"
+        app:srcCompat="@android:drawable/ic_menu_info_details"
         android:id="@+id/info"
         app:layout_anchorGravity="bottom|left"
         android:layout_gravity="top|right"
-        android:background="?attr/actionModeSplitBackground"
-        android:onClick="onInfoClick"/>
+        android:background="@android:color/transparent"
+        android:onClick="onInfoClick" />
 
     <include layout="@layout/content_main" />
+
 
 </android.support.design.widget.CoordinatorLayout>

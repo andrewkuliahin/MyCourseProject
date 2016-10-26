@@ -9,4 +9,17 @@
     tools:context="andrew_kuliahin.myapplication.MainActivity"
     tools:showIn="@layout/activity_main">
 
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="56dp"
+        android:animateLayoutChanges="false"
+        android:clickable="true"
+        android:contextClickable="true"
+        android:id="@+id/search"
+        android:background="@drawable/design_search" />
+
 </RelativeLayout>
