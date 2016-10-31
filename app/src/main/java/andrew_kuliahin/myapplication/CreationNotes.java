@@ -2,11 +2,13 @@ package andrew_kuliahin.myapplication;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -29,6 +31,7 @@ public class CreationNotes extends AppCompatActivity {
         finish();
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,10 +40,31 @@ public class CreationNotes extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        EditText ed = (EditText) findViewById(R.id.editText);
+        String ed_text = ed.getText().toString();
+            if(ed_text.length() == 0 ){}
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab2);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText ed = (EditText) findViewById(R.id.editText);
+                String ed_text = ed.getText().toString();
+                if(ed_text.length() == 0 ){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(CreationNotes.this);
+                    Empty empty = new Empty(builder);
+                }
+                else {
+                    finish();
+                }
+            }
+        });
+
+
         Date d = new Date();
-        SimpleDateFormat format1 = new SimpleDateFormat("dd.MM.yyyy hh:mm");
+        SimpleDateFormat format1 = new SimpleDateFormat("dd.MM.yy  HH:mm");
         TextView dateout = (TextView)findViewById(R.id.date_out);
-        dateout.setText("Новая запись    " + format1.format(d));
+        dateout.setText("Новая запись      " + format1.format(d));
         note_date = d.toString();
 
         // адаптер

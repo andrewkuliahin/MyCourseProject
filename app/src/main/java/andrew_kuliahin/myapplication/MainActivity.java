@@ -2,16 +2,30 @@ package andrew_kuliahin.myapplication;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 import static andrew_kuliahin.myapplication.R.layout.activity_main;
 
 public class MainActivity extends AppCompatActivity {
+
+    ListView mList;
+    TextView header;
+    DatabaseHelper sqlHelper;
+    SQLiteDatabase db;
+    Cursor userCursor;
+    SimpleCursorAdapter userAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +43,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        header = (TextView)findViewById(R.id.header);
+        mList = (ListView)findViewById(R.id.list);
+        mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            }
+        });
+        sqlHelper = new DatabaseHelper(getApplicationContext());
     }
 
     public void onInfoClick(View v){
@@ -37,6 +59,27 @@ public class MainActivity extends AppCompatActivity {
         Info info = new Info(builder);
     }
 
+     @Override
+    public void onResume() {
+        super.onResume();
+        // открываем подключение
+        db = sqlHelper.getReadableDatabase();
+        //получаем данные из бд
+        userCursor =  db.rawQuery("select * from "+ DatabaseHelper.TABLE, null);
+        String[] headers = new String[] {DatabaseHelper.COLUMN_DATECATEGORY, DatabaseHelper.COLUMN_NOTE};
+        userAdapter = new SimpleCursorAdapter(this, android.R.layout.two_line_list_item,
+                userCursor, headers, new int[]{android.R.id.text1, android.R.id.text2}, 0);
+        header.setText("Всего записей: " + String.valueOf(userCursor.getCount()));
+        mList.setAdapter(userAdapter);
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        // Закрываем подключения
+        db.close();
+        userCursor.close();
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

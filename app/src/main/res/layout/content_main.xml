@@ -20,6 +20,7 @@
         android:clickable="true"
         android:contextClickable="true"
         android:id="@+id/search"
-        android:background="@drawable/design_search" />
+        android:background="@drawable/design_search"/>
+
 
 </RelativeLayout>
