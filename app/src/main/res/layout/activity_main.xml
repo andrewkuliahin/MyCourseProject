@@ -11,12 +11,13 @@
 
     <TextView
         android:text="TextView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:id="@+id/header"
         android:layout_below="@+id/search"
-        android:layout_marginTop="114dp" />
+        android:layout_marginTop="110dp"
+        android:gravity="center_horizontal"  />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -42,17 +43,21 @@
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="130dp">
+        android:layout_marginTop="130dp"
+        app:statusBarBackground="@android:color/transparent">
 
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/search"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="15dp"
             android:id="@+id/list"
             android:longClickable="true"
-            android:choiceMode="multipleChoice"/>
+            android:choiceMode="multipleChoice"
+            android:divider="#1d1b1b"
+            android:dividerHeight="1dp"
+            android:layout_margin="2dp" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"

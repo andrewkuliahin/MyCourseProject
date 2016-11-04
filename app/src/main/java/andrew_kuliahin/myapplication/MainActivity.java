@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         // открываем подключение
-        db = sqlHelper.getReadableDatabase();
+        db = sqlHelper.getWritableDatabase();
         //получаем данные из бд
         userCursor =  db.rawQuery("select * from "+ DatabaseHelper.TABLE, null);
         String[] headers = new String[] {DatabaseHelper.COLUMN_DATECATEGORY, DatabaseHelper.COLUMN_NOTE};
