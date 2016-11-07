@@ -13,4 +13,92 @@
     tools:context="andrew_kuliahin.myapplication.CreationNotes"
     tools:showIn="@layout/activity_creation_notes">
 
+    <TextView
+        android:text="Категория:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ChooseCategory"
+        android:layout_marginTop="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:textSize="15sp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ChooseCategory"
+        android:layout_toEndOf="@+id/ChooseCategory"
+        android:layout_marginStart="4dp"
+        android:id="@+id/spinner"
+        android:layout_marginTop="-2dp" />
+
+    <TextView
+        android:text="Новая запись"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spinner"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="20dp"
+        android:textStyle="normal|bold"
+        android:id="@+id/date_out" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="normal"
+        app:srcCompat="@android:drawable/ic_menu_send"
+        android:id="@+id/fab2"
+        android:layout_alignTop="@+id/spinner"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="18dp"
+        app:backgroundTint="@android:color/holo_blue_dark"
+        app:rippleColor="@android:color/holo_blue_light" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+    <TextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/category"
+        android:layout_marginTop="115dp"
+        android:clickable="true"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:inputType="textMultiLine"
+        android:ems="20"
+        android:id="@+id/editText"
+        android:cursorVisible="true"
+        android:verticalScrollbarPosition="right"
+        android:isScrollContainer="true"
+        android:focusable="true"
+        android:layout_height="300dp"
+        android:scrollbars="vertical"
+        android:textColorLink="?android:attr/textColorTertiary"
+        android:textCursorDrawable="@drawable/black_cursor"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:background="@drawable/design_edit_text"
+        android:paddingTop="3dp"
+        android:paddingEnd="3dp"
+        android:padding="3dp"
+        android:selectAllOnFocus="false"
+        android:visibility="visible"
+        android:gravity="top"
+        android:layout_below="@+id/fab2"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentBottom="true"
+        android:scrollHorizontally="false"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:scrollbarSize="8dp"
+        android:scrollbarDefaultDelayBeforeFade="200"
+        android:scrollbarStyle="outsideOverlay" />
+
+
 </RelativeLayout>
